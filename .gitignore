@@ -1,0 +1,5 @@
+# Build's files
+.gradle/
+gradle/
+gradlew*
+build/
