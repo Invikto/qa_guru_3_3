@@ -4,8 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.TemplatePage;
 
-import java.util.Objects;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -17,10 +15,12 @@ public class DepositInsuranceTest extends TemplatePage {
   void checkDepositInsurancePageIsNotEmpty() {
 
     open(startUrl);
-    $(String.format("[href$='%s']", accumulationDir)).click();
-    open(Objects.requireNonNull($(byText("Все вклады застрахованы")).parent().$("a").attr("href")));
+    $(byText("Вклады")).hover();
+    $(byText("Депозиты")).closest("span").sibling(0).$("a").click();
+    $("#footer").preceding(0).$(byText("Страхование вкладов")).parent().click();
+    $("#footer").preceding(0).$(byText("Подробнее")).click();
 
-    $("[data-test-id='mainBanner']").shouldHave(text("Страхование вкладов"));
+    $("h1").shouldHave(text("Страхование вкладов"));
     $("p[data-widget-name='Text']").should(exist);
     $("p[data-widget-name='Text']").shouldNotBe(empty);
 

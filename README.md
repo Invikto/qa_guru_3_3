@@ -6,7 +6,7 @@
 3. Check the page contains exactly 5 deposits.
 
 ## 2. Deposit Insurance
-1. Implement a test of transition on the deposit insurance page.
+1. Implement a test of transition on the deposit insurance page using `sibling()`, `preceding()`, `parent()`, `closest()`.
 
 # Solution
 
